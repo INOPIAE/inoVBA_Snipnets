@@ -32,7 +32,7 @@ End Sub
 
 In dem Codebeispiel wird eine neue Registerkarte mit dem Namen Reporting vor der Registerkarte Ansicht eingefügt.
 
-![Screenshot Ribbon](/scources/screenshoot_project_ribbon.png)
+![Screenshot Ribbon](/sources/screenshoot_project_ribbon.png)
 
 Diese enthält die Gruppe Zeitskalen mit zwei Schlatflächen "JAhr Monat Woche" und "Woche Tage Stunden".
 

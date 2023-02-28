@@ -9,6 +9,8 @@ Sub ZeitleisteJahrMonatWoche()
     MinorUnits:=PjTimescaleUnit.pjTimescaleWeeks, MinorLabel:=PjWeekLabel.pjWeekLabelWeekNumber_ww, MinorCount:=1, _
     Separator:=True
     
+    GotoTaskDates
+    
 End Sub
 
 
@@ -19,6 +21,8 @@ Sub ZeitleisteWocheTageStunden()
     MajorUnits:=PjTimescaleUnit.pjTimescaleDays, MajorLabel:=PjDateLabel.pjDay_ddi_mm_dd, MajorCount:=1, _
     MinorUnits:=PjTimescaleUnit.pjTimescaleHours, MinorLabel:=PjDateLabel.pjHour_hh, MinorCount:=6, _
     Separator:=True
+    
+    GotoTaskDates
     
 End Sub
 

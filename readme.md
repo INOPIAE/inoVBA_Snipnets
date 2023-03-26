@@ -1,11 +1,11 @@
 # inoVBA Snipnets
 
-Hier finden sich einige VBA Code-Schniptzel und Beispieldatei für VBA-Lösungen in MS Office Produkten.
+Hier finden sich einige VBA Code-Schniptzel und Beispieldateien für VBA-Lösungen in MS Office Produkten.
 
 
 ## Ribbon Erstellung für MS Project Dateien.
 
-Für eigene Ribbons in MS Project kann nicht de Custom UI Editor verwendetet werden.
+Für eigene Ribbons in MS Project kann nicht der Custom UI Editor verwendetet werden.
 
 Allerdings kann dieser Code genutzt werden.
 

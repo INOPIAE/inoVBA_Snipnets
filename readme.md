@@ -34,7 +34,7 @@ In dem Codebeispiel wird eine neue Registerkarte mit dem Namen Reporting vor der
 
 ![Screenshot Ribbon](/sources/screenshoot_project_ribbon.png)
 
-Diese enthält die Gruppe Zeitskalen mit zwei Schlatflächen "JAhr Monat Woche" und "Woche Tage Stunden".
+Diese enthält die Gruppe Zeitskalen mit zwei Schlatflächen "Jahr Monat Woche" und "Woche Tage Stunden".
 
 Mit dem OnAction-Tag wird die entsprechende Prozedure im Code angesprochen.
 

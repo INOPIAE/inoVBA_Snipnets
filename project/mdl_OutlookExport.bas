@@ -1,9 +1,21 @@
 Attribute VB_Name = "mdl_OutlookExport"
 Option Explicit
 
-Public olApp As Outlook.Application
+Private olApp As Outlook.Application
 
 Public Sub ExportTasksToOutlook()
+    ExportToOutlook "A"
+End Sub
+
+Public Sub ExportMilestonesToOutlook()
+    ExportToOutlook "M"
+End Sub
+
+Public Sub ExportSummaryToOutlook()
+    ExportToOutlook "S"
+End Sub
+
+Public Sub ExportToOutlook(ByVal strType, Optional strFlag As String = "")
     Dim t As Task
     Dim dtStart As Date
     Dim dtEnd As Date
@@ -20,7 +32,25 @@ Public Sub ExportTasksToOutlook()
     dtEnd = Date + 30 + EndDiff
     
     For Each t In ActiveProject.Tasks
-        ExportAppointment dtStart, dtEnd, t.start, t.Finish, t.Name
+        Dim dtFinish As Date
+        If t.Milestone = True Then
+            dtFinish = DateAdd("n", 15, t.Finish)
+        Else
+            dtFinish = t.Finish
+        End If
+        Select Case strType
+            
+            Case "M"
+                If t.Milestone = True Then
+                    ExportAppointment dtStart, dtEnd, t.start, dtFinish, t.Name
+                End If
+            Case "S"
+                If t.Summary = True Then
+                    ExportAppointment dtStart, dtEnd, t.start, dtFinish, t.Name
+                End If
+            Case Else
+                ExportAppointment dtStart, dtEnd, t.start, dtFinish, t.Name
+        End Select
     Next
 End Sub
 
@@ -37,18 +67,15 @@ Public Sub ExportAppointment(ByVal dtPStart As Date, ByVal dtPEnd As Date, ByVal
     End If
     
     With olAppoint
-    
         .start = dtStart
         .End = dtEnd
         .subject = strSubject
         .ReminderSet = False
         .AllDayEvent = False
-
         .Save
     End With
    
 End Sub
-
 
 Function GetAppointmentInRange(ByVal dtStart As Date, ByVal dtEnd As Date, ByVal strSubject As String) As Outlook.AppointmentItem
 
@@ -64,10 +91,8 @@ Function GetAppointmentInRange(ByVal dtStart As Date, ByVal dtEnd As Date, ByVal
     Dim iIt As Long
     Dim nItFilter As Long
     Dim nIt As Long
-'    Set olApp = GetObject(, "Outlook.Application")
+    
     Set oCalendar = olApp.Session.GetDefaultFolder(olFolderCalendar)
-       
-                 
        
     Set objItems = oCalendar.Items
     objItems.IncludeRecurrences = True
@@ -75,21 +100,16 @@ Function GetAppointmentInRange(ByVal dtStart As Date, ByVal dtEnd As Date, ByVal
                   
     filterRange = "[Start] >= " & Chr(34) & Format(dtStart, "yyyy-mm-dd hh:mm AM/PM") & Chr(34) & " AND " & _
                   "[End] <= " & Chr(34) & Format(dtEnd, "yyyy-mm-dd hh:mm AM/PM") & Chr(34)
-    
-    Debug.Print "filterRangeE: " & filterRange
-    
+        
     Set objRestrictedItems = objItems.Restrict(filterRange)
     
     nItFilter = objRestrictedItems.Count
-    Debug.Print nItFilter & " total items"
 
     nIt = 0
     
-    
-    For Each oItem In objRestrictedItems ' oFinalItems
+    For Each oItem In objRestrictedItems
         If (Not (oItem Is Nothing)) Then
             nIt = nIt + 1
-            Debug.Print oItem.start & "-" & oItem.End
             
             If strSubject = oItem.subject Then
                 Set GetAppointmentInRange = oItem
@@ -99,7 +119,7 @@ Function GetAppointmentInRange(ByVal dtStart As Date, ByVal dtEnd As Date, ByVal
         End If
     Next oItem
     
-    Debug.Print nIt & " net items"
-    
-
 End Function
+
+
+

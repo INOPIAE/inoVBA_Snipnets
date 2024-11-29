@@ -7,13 +7,15 @@ Private wkb As Workbook
 
 Sub ExportCurrentShapeData()
      On Error GoTo Fehler
+    
+    
+    Dim TheShp As Visio.Shape
+    Set TheShp = ActiveWindow.Selection.Item(1)
+    
     Excel_Open
     Set wkb = ExApp.Workbooks.Add
     Set wks = wkb.Worksheets(1)
     wks.Activate
-    
-    Dim TheShp As Visio.Shape
-    Set TheShp = ActiveWindow.Selection.Item(1)
     
     Dim Zelle As Long
     Zelle = 3
@@ -27,10 +29,15 @@ Fehler:
        Case -2032465753
             MsgBox "Es wurde kein Shape ausgewählt"
             Err.Clear
+            On Error GoTo 0
+        Case -2032465751
+            Err.Clear
+            Resume Next
         Case Else
             MsgBox Err.Number & " " & Err.Description
             Debug.Print Err.Number
     End Select
+
 End Sub
 
 Private Function ExportUser(Zelle As Long, TheShp As Visio.Shape) As Long
@@ -67,6 +74,7 @@ Fehler:
     Select Case Err.Number
         Case -2032465751
             Err.Clear
+            On Error GoTo 0
         Case Else
             MsgBox Err.Number & " " & Err.Description
             Debug.Print Err.Number
@@ -107,6 +115,7 @@ Fehler:
     Select Case Err.Number
         Case -2032465751
             Err.Clear
+            On Error GoTo 0
         Case Else
             MsgBox Err.Number & " " & Err.Description
             Debug.Print Err.Number

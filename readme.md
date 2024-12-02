@@ -16,3 +16,7 @@ Im Tutorial [MS Project](/tutorials/msproject.md) wird aufgezeigt, wie Vörgäng
 ## Blattschutz beim Öffnen einer Excel-Datei abhängig vom Nutzer aufheben
 
 Im Tutorial [Blattschutz](/tutorials/blattschutz.md) wird aufgezeigt, wie beim Öffnen einer Excel-Datei der Blattschutz abhängig vom Nutzer aufhoben wird.
+
+## Export von ShapeSheet Daten nach Excel
+
+Im Tutorial [Export von ShapeSheet Daten nach Excel](/tutorials/visioshapesheetexport.md) wird aufgezeigt, wie aus Visio die Shapesheet-Daten formatiert nach Excel exportiert werden können.

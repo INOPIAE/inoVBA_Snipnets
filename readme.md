@@ -20,3 +20,9 @@ Im Tutorial [Blattschutz](/tutorials/blattschutz.md) wird aufgezeigt, wie beim �
 ## Export von ShapeSheet Daten nach Excel
 
 Im Tutorial [Export von ShapeSheet Daten nach Excel](/tutorials/visioshapesheetexport.md) wird aufgezeigt, wie aus Visio die Shapesheet-Daten formatiert nach Excel exportiert werden können.
+
+## Dateiauswahldialog für Visio VBA
+
+Leider gibt es in Visio keinen funktionierenden Dateiauswahldialog in VBA. 
+
+Im Tutorial [Dateiauswahldialog für Visio VBA](/tutorials/DateiAuswahlDialogVisio.md) eine Lösung aufgezeigt.

@@ -26,3 +26,9 @@ Im Tutorial [Export von ShapeSheet Daten nach Excel](/tutorials/visioshapesheete
 Leider gibt es in Visio keinen funktionierenden Dateiauswahldialog in VBA. 
 
 Im Tutorial [Dateiauswahldialog für Visio VBA](/tutorials/DateiAuswahlDialogVisio.md) eine Lösung aufgezeigt.
+
+## Access VBA
+
+ier geht es um kleine Hilfsfunktionen zu Access VBA.
+
+Im Tutorial [Access VBA für Visio VBA](/tutorials/AcessVBA.md) werden diese aufgezeigt und erläutert.
